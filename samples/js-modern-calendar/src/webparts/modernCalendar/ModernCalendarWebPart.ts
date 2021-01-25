@@ -1,16 +1,7 @@
 import { Version } from '@microsoft/sp-core-library';
-import {
-  BaseClientSideWebPart,
-  IPropertyPaneConfiguration,
-  IPropertyPaneDropdownOption,
-  IPropertyPaneTextFieldProps,
-  IWebPartContext,
-  PropertyPaneTextField,
-  PropertyPaneDropdown,
-  IPropertyPaneDropdownProps
-} from '@microsoft/sp-webpart-base';
-import { escape } from '@microsoft/sp-lodash-subset';
-import styles from './ModernCalendar.module.scss';
+import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
+import { IPropertyPaneConfiguration, IPropertyPaneDropdownOption, PropertyPaneTextField, PropertyPaneDropdown, IPropertyPaneDropdownProps } from "@microsoft/sp-property-pane";
+
 import * as strings from 'modernCalendarStrings';
 import { IModernCalendarWebPartProps } from './IModernCalendarWebPartProps';
 import CalendarTemplate from './CalendarTemplate';
@@ -22,11 +13,8 @@ import { SPComponentLoader } from '@microsoft/sp-loader';
 import {
   SPHttpClient, SPHttpClientResponse
 } from '@microsoft/sp-http';
-import {
-  Environment,
-  EnvironmentType
-} from '@microsoft/sp-core-library';
-import { EventObjectInput, OptionsInput } from 'fullcalendar';
+
+import { EventObjectInput } from 'fullcalendar';
 import { Default as View } from 'fullcalendar/View';
 
 export interface ISPLists {
@@ -118,8 +106,8 @@ export default class ModernCalendarWebPart extends BaseClientSideWebPart<IModern
                     this._getListColumns(this.properties.listTitle, this.properties.site)
                       .then((response3) => {
                         var col: IPropertyPaneDropdownOption[] = [];
-                        for (var _key in response3.value) {
-                          col.push({ key: response3.value[_key]['InternalName'], text: response3.value[_key]['Title'] });
+                        for (var __key in response3.value) {
+                          col.push({ key: response3.value[__key]['InternalName'], text: response3.value[_key]['Title'] });
                         }
                         this._columnOptions = col;
                         this.colsDisabled = false;
@@ -350,8 +338,8 @@ export default class ModernCalendarWebPart extends BaseClientSideWebPart<IModern
                   this._getListColumns(this.properties.listTitle, this.properties.site)
                     .then((response3) => {
                       var col: IPropertyPaneDropdownOption[] = [];
-                      for (var _key in response3.value) {
-                        col.push({ key: response3.value[_key]['InternalName'], text: response3.value[_key]['Title'] });
+                      for (var __key in response3.value) {
+                        col.push({ key: response3.value[__key]['InternalName'], text: response3.value[_key]['Title'] });
                       }
                       this._columnOptions = col;
                       this.colsDisabled = false;

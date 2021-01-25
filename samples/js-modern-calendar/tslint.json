@@ -1,4 +1,6 @@
+
 {
+  "extends": "@microsoft/sp-tslint-rules/base-tslint.json",
   "rulesDirectory": [
     "tslint-microsoft-contrib"
   ],

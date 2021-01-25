@@ -1,6 +1,4 @@
-import {
-  IPropertyPaneDropdownOption
-} from '@microsoft/sp-webpart-base';
+import { IPropertyPaneDropdownOption } from "@microsoft/sp-property-pane";
 import styles from './CalendarTemplate.module.scss';
 import { escape } from '@microsoft/sp-lodash-subset';
 
@@ -67,7 +65,7 @@ export default class CalendarTemplate {
 
     public static theme(): IPropertyPaneDropdownOption[] {
         var themes: IPropertyPaneDropdownOption[] = [];
-        CalendarTemplate.themeNames.forEach(function(name,index) {
+        CalendarTemplate.themeNames.forEach((name,_index)=> {
             themes.push({key: CalendarTemplate.themeBase + name + '/jquery-ui.min.css', text: name.toLocaleUpperCase()});
         });
         return themes;
